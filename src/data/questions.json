@@ -1,0 +1,1088 @@
+{
+    "easy": [
+        {
+            "id": "e1",
+            "question": "Which nutrient is the primary source of energy for the human body?",
+            "options": [
+                "Proteins",
+                "Carbohydrates",
+                "Fats",
+                "Vitamins"
+            ],
+            "answer": 1,
+            "explanation": "Carbohydrates are the body's preferred and most efficient energy source, providing 4 kcal per gram."
+        },
+        {
+            "id": "e2",
+            "question": "How many calories does 1 gram of fat provide?",
+            "options": [
+                "4 kcal",
+                "7 kcal",
+                "9 kcal",
+                "11 kcal"
+            ],
+            "answer": 2,
+            "explanation": "Fat provides 9 kcal per gram, making it the most energy-dense macronutrient."
+        },
+        {
+            "id": "e3",
+            "question": "Which vitamin is synthesized by the skin upon sunlight exposure?",
+            "options": [
+                "Vitamin A",
+                "Vitamin C",
+                "Vitamin D",
+                "Vitamin E"
+            ],
+            "answer": 2,
+            "explanation": "Vitamin D is synthesized in the skin when exposed to UVB radiation from sunlight."
+        },
+        {
+            "id": "e4",
+            "question": "Which mineral is essential for strong bones and teeth?",
+            "options": [
+                "Iron",
+                "Calcium",
+                "Potassium",
+                "Sodium"
+            ],
+            "answer": 1,
+            "explanation": "Calcium is the most abundant mineral in the body and critical for bone & dental health."
+        },
+        {
+            "id": "e5",
+            "question": "What is the recommended daily water intake for an average adult?",
+            "options": [
+                "1 litre",
+                "1.5 litres",
+                "2–3 litres",
+                "5 litres"
+            ],
+            "answer": 2,
+            "explanation": "Most adults need 2–3 litres daily depending on body size, activity, and climate."
+        },
+        {
+            "id": "e6",
+            "question": "Which food group is the richest source of dietary protein?",
+            "options": [
+                "Fruits",
+                "Grains",
+                "Dairy & Legumes",
+                "Vegetables"
+            ],
+            "answer": 2,
+            "explanation": "Dairy products, meat, fish, eggs, and legumes are the primary protein sources."
+        },
+        {
+            "id": "e7",
+            "question": "Which vitamin is abundant in citrus fruits and helps immune function?",
+            "options": [
+                "Vitamin A",
+                "Vitamin B12",
+                "Vitamin C",
+                "Vitamin K"
+            ],
+            "answer": 2,
+            "explanation": "Vitamin C (ascorbic acid) is a potent antioxidant important for immunity and collagen synthesis."
+        },
+        {
+            "id": "e8",
+            "question": "Dietary fibre is primarily found in which food group?",
+            "options": [
+                "Animal products",
+                "Processed foods",
+                "Plant-based foods",
+                "Refined grains"
+            ],
+            "answer": 2,
+            "explanation": "Dietary fibre is found exclusively in plant foods: fruits, vegetables, legumes, and whole grains."
+        },
+        {
+            "id": "e9",
+            "question": "What does BMI stand for?",
+            "options": [
+                "Body Mineral Index",
+                "Bone Mass Indicator",
+                "Body Mass Index",
+                "Basal Metabolic Index"
+            ],
+            "answer": 2,
+            "explanation": "BMI = weight (kg) ÷ height² (m²), used to screen for underweight, overweight, and obesity."
+        },
+        {
+            "id": "e10",
+            "question": "Which nutrient is most important for muscle repair and growth?",
+            "options": [
+                "Carbohydrates",
+                "Protein",
+                "Fat",
+                "Water"
+            ],
+            "answer": 1,
+            "explanation": "Proteins are made of amino acids — the building blocks essential for muscle repair and growth."
+        },
+        {
+            "id": "e11",
+            "question": "Iron-deficiency leads to which common nutritional condition?",
+            "options": [
+                "Rickets",
+                "Scurvy",
+                "Anemia",
+                "Goitre"
+            ],
+            "answer": 2,
+            "explanation": "Iron-deficiency anemia reduces haemoglobin, causing fatigue, pallor, and reduced immunity."
+        },
+        {
+            "id": "e12",
+            "question": "Which type of fat is considered 'heart-healthy'?",
+            "options": [
+                "Trans fats",
+                "Saturated fats",
+                "Unsaturated fats",
+                "Hydrogenated fats"
+            ],
+            "answer": 2,
+            "explanation": "Unsaturated fats (mono & poly) lower LDL cholesterol and reduce cardiovascular risk."
+        },
+        {
+            "id": "e13",
+            "question": "Glucose is a type of which macronutrient?",
+            "options": [
+                "Protein",
+                "Lipid",
+                "Carbohydrate",
+                "Vitamin"
+            ],
+            "answer": 2,
+            "explanation": "Glucose is a monosaccharide and the simplest form of carbohydrate."
+        },
+        {
+            "id": "e14",
+            "question": "Which organ is primarily responsible for nutrient absorption?",
+            "options": [
+                "Stomach",
+                "Large intestine",
+                "Small intestine",
+                "Liver"
+            ],
+            "answer": 2,
+            "explanation": "The small intestine has villi and microvilli that absorb most nutrients into the bloodstream."
+        },
+        {
+            "id": "e15",
+            "question": "What is the caloric value of 1 gram of protein?",
+            "options": [
+                "4 kcal",
+                "7 kcal",
+                "9 kcal",
+                "2 kcal"
+            ],
+            "answer": 0,
+            "explanation": "Both protein and carbohydrates provide 4 kcal per gram."
+        },
+        {
+            "id": "e16",
+            "question": "Which mineral deficiency is the most common cause of goitre?",
+            "options": [
+                "Calcium",
+                "Iron",
+                "Iodine",
+                "Zinc"
+            ],
+            "answer": 2,
+            "explanation": "Iodine deficiency prevents thyroxine production, causing the thyroid gland to enlarge (goitre)."
+        },
+        {
+            "id": "e17",
+            "question": "Folic acid is crucial during pregnancy to prevent which condition?",
+            "options": [
+                "Neural tube defects",
+                "Rickets",
+                "Night blindness",
+                "Pellagra"
+            ],
+            "answer": 0,
+            "explanation": "Adequate folic acid before and early in pregnancy prevents neural tube defects like spina bifida."
+        },
+        {
+            "id": "e18",
+            "question": "What is the main function of Vitamin A?",
+            "options": [
+                "Blood clotting",
+                "Vision and immunity",
+                "Energy metabolism",
+                "Calcium absorption"
+            ],
+            "answer": 1,
+            "explanation": "Vitamin A is essential for vision (especially night vision), immune function, and epithelial integrity."
+        },
+        {
+            "id": "e19",
+            "question": "Which food is the best plant-based source of omega-3 fatty acids?",
+            "options": [
+                "Brown rice",
+                "Flaxseeds",
+                "Bananas",
+                "Potatoes"
+            ],
+            "answer": 1,
+            "explanation": "Flaxseeds are the richest plant source of ALA (alpha-linolenic acid), a type of omega-3."
+        },
+        {
+            "id": "e20",
+            "question": "Scurvy is caused by deficiency of which vitamin?",
+            "options": [
+                "Vitamin B1",
+                "Vitamin C",
+                "Vitamin D",
+                "Vitamin E"
+            ],
+            "answer": 1,
+            "explanation": "Vitamin C deficiency causes scurvy — characterized by bleeding gums and impaired wound healing."
+        },
+        {
+            "id": "e21",
+            "question": "Which macronutrient is used as a last resort for energy by the body?",
+            "options": [
+                "Carbohydrates",
+                "Fats",
+                "Proteins",
+                "Minerals"
+            ],
+            "answer": 2,
+            "explanation": "Protein is a last resort energy source because it serves structural and enzymatic functions."
+        },
+        {
+            "id": "e22",
+            "question": "What is lactose?",
+            "options": [
+                "A fat in milk",
+                "A protein in milk",
+                "A sugar in milk",
+                "A vitamin in milk"
+            ],
+            "answer": 2,
+            "explanation": "Lactose is the natural disaccharide (sugar) found in milk and dairy products."
+        },
+        {
+            "id": "e23",
+            "question": "Which food colour often indicates the presence of beta-carotene?",
+            "options": [
+                "Green",
+                "Blue",
+                "Orange/Yellow",
+                "White"
+            ],
+            "answer": 2,
+            "explanation": "Beta-carotene, a precursor to Vitamin A, gives orange/yellow colour to foods like carrots and mangoes."
+        },
+        {
+            "id": "e24",
+            "question": "The Recommended Dietary Allowance (RDA) is set for which population group?",
+            "options": [
+                "Those with disease",
+                "Healthy individuals",
+                "Athletes only",
+                "Pregnant women only"
+            ],
+            "answer": 1,
+            "explanation": "RDA is established to meet the nutrient needs of nearly all (97–98%) healthy individuals in a group."
+        },
+        {
+            "id": "e25",
+            "question": "Which mineral helps in oxygen transport in the blood?",
+            "options": [
+                "Calcium",
+                "Iron",
+                "Zinc",
+                "Magnesium"
+            ],
+            "answer": 1,
+            "explanation": "Iron is a key component of haemoglobin, the protein in red blood cells that carries oxygen."
+        },
+        {
+            "id": "e26",
+            "question": "Energy balance occurs when calorie intake equals calorie ___.",
+            "options": [
+                "Storage",
+                "Absorption",
+                "Expenditure",
+                "Consumption"
+            ],
+            "answer": 2,
+            "explanation": "When energy intake equals energy expenditure, body weight remains stable."
+        },
+        {
+            "id": "e27",
+            "question": "Which type of carbohydrate provides the slowest energy release?",
+            "options": [
+                "Simple sugars",
+                "White bread",
+                "Complex carbohydrates",
+                "Fruit juice"
+            ],
+            "answer": 2,
+            "explanation": "Complex carbohydrates (starch, fibre) digest slowly, providing sustained energy and stable blood sugar."
+        },
+        {
+            "id": "e28",
+            "question": "What does 'fortification' of food mean?",
+            "options": [
+                "Removing nutrients",
+                "Adding nutrients beyond natural levels",
+                "Preserving food",
+                "Cooking food"
+            ],
+            "answer": 1,
+            "explanation": "Food fortification adds vitamins or minerals to foods to prevent nutritional deficiencies."
+        },
+        {
+            "id": "e29",
+            "question": "Which vitamin requires fat for its absorption in the body?",
+            "options": [
+                "Vitamin C",
+                "Vitamin B12",
+                "Vitamin D",
+                "Vitamin B6"
+            ],
+            "answer": 2,
+            "explanation": "Vitamins A, D, E, and K are fat-soluble — they need dietary fat to be absorbed."
+        },
+        {
+            "id": "e30",
+            "question": "Protein-energy malnutrition in children is classified as which condition?",
+            "options": [
+                "Osteoporosis",
+                "Kwashiorkor/Marasmus",
+                "Anaemia",
+                "Rickets"
+            ],
+            "answer": 1,
+            "explanation": "Kwashiorkor (protein deficiency) and Marasmus (overall energy-protein deficiency) are PEM conditions."
+        }
+    ],
+    "medium": [
+        {
+            "id": "m1",
+            "question": "The Acceptable Macronutrient Distribution Range (AMDR) for carbohydrates in adults is:",
+            "options": [
+                "10–35% of total energy",
+                "20–35% of total energy",
+                "45–65% of total energy",
+                "55–75% of total energy"
+            ],
+            "answer": 2,
+            "explanation": "The AMDR for carbohydrates is 45–65% of total daily energy intake for adults."
+        },
+        {
+            "id": "m2",
+            "question": "Which enzyme initiates starch digestion in the mouth?",
+            "options": [
+                "Pepsin",
+                "Lipase",
+                "Salivary amylase",
+                "Trypsin"
+            ],
+            "answer": 2,
+            "explanation": "Salivary (ptyalin) amylase in saliva begins hydrolysing starch into maltose in the oral cavity."
+        },
+        {
+            "id": "m3",
+            "question": "Glycaemic Index (GI) measures which property of a food?",
+            "options": [
+                "Fat content",
+                "Protein quality",
+                "Blood glucose response",
+                "Fibre content"
+            ],
+            "answer": 2,
+            "explanation": "GI ranks foods (0–100) by how rapidly they raise blood glucose compared to pure glucose."
+        },
+        {
+            "id": "m4",
+            "question": "Which amino acid is considered 'conditionally essential' during illness?",
+            "options": [
+                "Leucine",
+                "Glutamine",
+                "Methionine",
+                "Lysine"
+            ],
+            "answer": 1,
+            "explanation": "Glutamine is conditionally essential during physiological stress, trauma, or serious illness."
+        },
+        {
+            "id": "m5",
+            "question": "Trans fatty acids primarily raise which lipoprotein in blood?",
+            "options": [
+                "HDL",
+                "LDL",
+                "VLDL",
+                "Chylomicrons"
+            ],
+            "answer": 1,
+            "explanation": "Trans fats raise LDL ('bad') cholesterol and lower HDL ('good') cholesterol, increasing heart disease risk."
+        },
+        {
+            "id": "m6",
+            "question": "Pellagra is caused by deficiency of which vitamin?",
+            "options": [
+                "Vitamin B1 (Thiamine)",
+                "Vitamin B2 (Riboflavin)",
+                "Vitamin B3 (Niacin)",
+                "Vitamin B6"
+            ],
+            "answer": 2,
+            "explanation": "Niacin (B3) deficiency causes pellagra — characterized by the 4 Ds: Dermatitis, Diarrhoea, Dementia, Death."
+        },
+        {
+            "id": "m7",
+            "question": "The thermic effect of food (TEF) is highest for which macronutrient?",
+            "options": [
+                "Carbohydrates",
+                "Fats",
+                "Proteins",
+                "Alcohol"
+            ],
+            "answer": 2,
+            "explanation": "Protein has the highest TEF (~20–30%), meaning the body burns more energy digesting protein than carbs or fat."
+        },
+        {
+            "id": "m8",
+            "question": "Which hormone primarily regulates blood glucose by promoting cellular uptake?",
+            "options": [
+                "Glucagon",
+                "Cortisol",
+                "Insulin",
+                "Adrenaline"
+            ],
+            "answer": 2,
+            "explanation": "Insulin, secreted by pancreatic β-cells, promotes glucose uptake by muscle, fat, and liver cells."
+        },
+        {
+            "id": "m9",
+            "question": "Phytic acid in grains primarily reduces the absorption of:",
+            "options": [
+                "Vitamins A and D",
+                "Iron and Zinc",
+                "Calcium and Phosphorus",
+                "Essential fatty acids"
+            ],
+            "answer": 1,
+            "explanation": "Phytate chelates minerals like iron and zinc, reducing their bioavailability from plant foods."
+        },
+        {
+            "id": "m10",
+            "question": "What is the primary nitrogen-containing waste product excreted by the kidneys?",
+            "options": [
+                "Creatinine",
+                "Ammonia",
+                "Urea",
+                "Uric acid"
+            ],
+            "answer": 2,
+            "explanation": "Urea, formed in the liver from amino acid catabolism, is the major nitrogenous waste in urine."
+        },
+        {
+            "id": "m11",
+            "question": "Vitamin B12 absorption depends on which gastric factor?",
+            "options": [
+                "Pepsinogen",
+                "Intrinsic factor",
+                "Gastrin",
+                "Hydrochloric acid"
+            ],
+            "answer": 1,
+            "explanation": "Intrinsic factor (IF), secreted by gastric parietal cells, is essential for ileal absorption of B12."
+        },
+        {
+            "id": "m12",
+            "question": "The RDA for protein for a healthy adult is approximately:",
+            "options": [
+                "0.4 g/kg body weight/day",
+                "0.8 g/kg body weight/day",
+                "1.5 g/kg body weight/day",
+                "2.0 g/kg body weight/day"
+            ],
+            "answer": 1,
+            "explanation": "The RDA for protein is 0.8 g/kg/day for sedentary healthy adults, with higher needs for athletes."
+        },
+        {
+            "id": "m13",
+            "question": "In malnutrition assessment, MUAC stands for:",
+            "options": [
+                "Mid-Upper Arm Circumference",
+                "Mineral Uptake and Calorie",
+                "Metabolic Undernutrition Assessment Chart",
+                "Macronutrient Utilization And Conversion"
+            ],
+            "answer": 0,
+            "explanation": "MUAC (Mid-Upper Arm Circumference) is a rapid screening tool for acute malnutrition, especially in children."
+        },
+        {
+            "id": "m14",
+            "question": "Which omega-3 fatty acid is most abundant in fatty fish (EPA/DHA)?",
+            "options": [
+                "ALA (Alpha-linolenic acid)",
+                "LA (Linoleic acid)",
+                "DHA (Docosahexaenoic acid)",
+                "GLA (Gamma-linolenic acid)"
+            ],
+            "answer": 2,
+            "explanation": "Fatty fish like salmon and sardines are rich in DHA and EPA, the long-chain omega-3 fatty acids."
+        },
+        {
+            "id": "m15",
+            "question": "Satiety is primarily mediated in which brain region?",
+            "options": [
+                "Amygdala",
+                "Hypothalamus",
+                "Cerebellum",
+                "Brainstem"
+            ],
+            "answer": 1,
+            "explanation": "The hypothalamus integrates hunger (NPY/AgRP) and satiety (POMC/CART) signals to regulate appetite."
+        },
+        {
+            "id": "m16",
+            "question": "Which dietary pattern is most consistently associated with reduced CVD risk?",
+            "options": [
+                "Keto diet",
+                "Mediterranean diet",
+                "High-protein diet",
+                "Low-fat diet"
+            ],
+            "answer": 1,
+            "explanation": "The Mediterranean diet (olive oil, fish, vegetables, whole grains) consistently reduces CVD risk in studies."
+        },
+        {
+            "id": "m17",
+            "question": "What does 'bioavailability' of a nutrient mean?",
+            "options": [
+                "Total nutrient in food",
+                "Proportion absorbed and used by the body",
+                "Nutrient destroyed by cooking",
+                "Nutrient stored in the body"
+            ],
+            "answer": 1,
+            "explanation": "Bioavailability is the fraction of an ingested nutrient that is absorbed and available for physiological function."
+        },
+        {
+            "id": "m18",
+            "question": "Beriberi disease is associated with deficiency of which B vitamin?",
+            "options": [
+                "Vitamin B2",
+                "Vitamin B3",
+                "Vitamin B1 (Thiamine)",
+                "Vitamin B6"
+            ],
+            "answer": 2,
+            "explanation": "Thiamine (B1) deficiency causes beriberi — wet (cardiac) or dry (neurological) forms."
+        },
+        {
+            "id": "m19",
+            "question": "Which test is used in the field to rapidly assess vitamin A deficiency in children?",
+            "options": [
+                "Serum retinol",
+                "Bitot's spots examination",
+                "Food frequency questionnaire",
+                "24-hour recall"
+            ],
+            "answer": 1,
+            "explanation": "Bitot's spots (white foamy patches on conjunctiva) are a clinical sign of Vitamin A deficiency."
+        },
+        {
+            "id": "m20",
+            "question": "Probiotic foods primarily support which aspect of health?",
+            "options": [
+                "Bone density",
+                "Gut microbiome",
+                "Vision",
+                "Blood pressure"
+            ],
+            "answer": 1,
+            "explanation": "Probiotics (yogurt, kefir, kimchi) introduce live beneficial bacteria to support gut health and immunity."
+        },
+        {
+            "id": "m21",
+            "question": "Nitrogen balance is positive when:",
+            "options": [
+                "Intake equals excretion",
+                "Intake exceeds excretion",
+                "Excretion exceeds intake",
+                "No nitrogen is consumed"
+            ],
+            "answer": 1,
+            "explanation": "Positive nitrogen balance (intake > excretion) occurs during growth, pregnancy, and muscle building."
+        },
+        {
+            "id": "m22",
+            "question": "Which method of nutritional assessment measures skinfold thickness?",
+            "options": [
+                "Dietary recall",
+                "Anthropometry",
+                "Biochemical assessment",
+                "Clinical examination"
+            ],
+            "answer": 1,
+            "explanation": "Skinfold thickness is an anthropometric measure used to estimate body fat percentage."
+        },
+        {
+            "id": "m23",
+            "question": "Cholecalciferol refers to which vitamin?",
+            "options": [
+                "Vitamin A",
+                "Vitamin C",
+                "Vitamin D3",
+                "Vitamin E"
+            ],
+            "answer": 2,
+            "explanation": "Cholecalciferol is Vitamin D3, the form synthesized in human skin upon UVB exposure."
+        },
+        {
+            "id": "m24",
+            "question": "Which nutrient acts as a coenzyme in over 300 enzymatic reactions in the body?",
+            "options": [
+                "Iron",
+                "Magnesium",
+                "Zinc",
+                "Copper"
+            ],
+            "answer": 1,
+            "explanation": "Magnesium is a cofactor in >300 enzymatic reactions including energy production and DNA synthesis."
+        },
+        {
+            "id": "m25",
+            "question": "The diet quality index that measures dietary diversity is called:",
+            "options": [
+                "GI score",
+                "Minimum Dietary Diversity (MDD)",
+                "HEI score",
+                "PAL index"
+            ],
+            "answer": 1,
+            "explanation": "MDD measures whether a child or woman consumes foods from ≥5 of 8 food groups."
+        },
+        {
+            "id": "m26",
+            "question": "Which vitamin is essential for calcium absorption from the intestine?",
+            "options": [
+                "Vitamin A",
+                "Vitamin B12",
+                "Vitamin D",
+                "Vitamin K"
+            ],
+            "answer": 2,
+            "explanation": "Vitamin D (as calcitriol) promotes active calcium absorption in the small intestine."
+        },
+        {
+            "id": "m27",
+            "question": "A food with a glycaemic load (GL) below 10 is considered:",
+            "options": [
+                "Very high GL",
+                "High GL",
+                "Low GL",
+                "Medium GL"
+            ],
+            "answer": 2,
+            "explanation": "GL <10 is low, 11–19 is medium, and ≥20 is high. GL accounts for portion size unlike GI alone."
+        },
+        {
+            "id": "m28",
+            "question": "FODMAP refers to fermentable carbohydrates relevant to which condition?",
+            "options": [
+                "Osteoporosis",
+                "Anaemia",
+                "Irritable Bowel Syndrome (IBS)",
+                "Thyroid disorders"
+            ],
+            "answer": 2,
+            "explanation": "Low-FODMAP diets reduce fermentable carbs to manage IBS symptoms like bloating and abdominal pain."
+        },
+        {
+            "id": "m29",
+            "question": "Tocopherol is the chemical name for which vitamin?",
+            "options": [
+                "Vitamin A",
+                "Vitamin D",
+                "Vitamin E",
+                "Vitamin K"
+            ],
+            "answer": 2,
+            "explanation": "Tocopherol (alpha-tocopherol being most active) is the chemical name for Vitamin E, a fat-soluble antioxidant."
+        },
+        {
+            "id": "m30",
+            "question": "The Dietary Reference Intake (DRI) framework includes which component that represents the highest safe intake?",
+            "options": [
+                "EAR",
+                "RDA",
+                "AI",
+                "UL"
+            ],
+            "answer": 3,
+            "explanation": "The Tolerable Upper Intake Level (UL) is the highest daily intake unlikely to cause adverse health effects."
+        }
+    ],
+    "hard": [
+        {
+            "id": "h1",
+            "question": "Uncoupling Protein 1 (UCP1) in brown adipose tissue dissipates energy as heat through which mechanism?",
+            "options": [
+                "Blocking ATP synthase substrate binding",
+                "Proton leak across the inner mitochondrial membrane",
+                "Inhibiting electron transport chain Complex III",
+                "Activating phosphofructokinase"
+            ],
+            "answer": 1,
+            "explanation": "UCP1 creates a proton channel that short-circuits the mitochondrial proton gradient, generating heat instead of ATP — this is non-shivering thermogenesis."
+        },
+        {
+            "id": "h2",
+            "question": "The PREDIMED trial primarily demonstrated cardiovascular benefit from which dietary intervention?",
+            "options": [
+                "Low saturated fat diet",
+                "Mediterranean diet supplemented with olive oil or nuts",
+                "Low glycaemic index diet",
+                "Caloric restriction to 1200 kcal/day"
+            ],
+            "answer": 1,
+            "explanation": "PREDIMED (2013) showed Mediterranean diet + EVOO or mixed nuts reduced major cardiovascular events by ~30% vs. control."
+        },
+        {
+            "id": "h3",
+            "question": "Methionine-restricted diets extend lifespan in rodents primarily through modulation of which pathway?",
+            "options": [
+                "mTOR and IGF-1 signalling",
+                "Glycolysis",
+                "Beta-oxidation",
+                "Purine synthesis"
+            ],
+            "answer": 0,
+            "explanation": "Methionine restriction reduces mTOR/IGF-1 activity, increases autophagy, and extends lifespan in multiple model organisms."
+        },
+        {
+            "id": "h4",
+            "question": "In the one-carbon metabolism cycle, folate and B12 cooperate to regenerate which amino acid?",
+            "options": [
+                "Glutamate",
+                "Methionine",
+                "Cysteine",
+                "Tyrosine"
+            ],
+            "answer": 1,
+            "explanation": "5-methylTHF donates a methyl group to homocysteine via B12-dependent methionine synthase, regenerating methionine and THF."
+        },
+        {
+            "id": "h5",
+            "question": "The CALERIE-2 trial investigated long-term effects of caloric restriction in humans. Its primary finding was:",
+            "options": [
+                "25% CR caused significant muscle wasting",
+                "25% CR improved cardiometabolic risk factors without clinical harm",
+                "CR increased mortality over 2 years",
+                "CR had no effect on metabolic rate"
+            ],
+            "answer": 1,
+            "explanation": "CALERIE-2 showed ~12% sustained CR over 2 years significantly improved cardiometabolic biomarkers (lipids, BP, insulin) in healthy adults."
+        },
+        {
+            "id": "h6",
+            "question": "Resistant starch acts primarily as a substrate for microbial production of which short-chain fatty acids?",
+            "options": [
+                "Formate and acetate only",
+                "Butyrate, propionate, and acetate",
+                "Lactate and succinate",
+                "Valerate and caproate"
+            ],
+            "answer": 1,
+            "explanation": "Resistant starch is fermented by colonic bacteria to produce SCFAs — primarily butyrate (colonocyte fuel), propionate (gluconeogenic), and acetate."
+        },
+        {
+            "id": "h7",
+            "question": "The Protein Digestibility Corrected Amino Acid Score (PDCAAS) is capped at a maximum value of:",
+            "options": [
+                "0.5",
+                "0.8",
+                "1.0",
+                "1.5"
+            ],
+            "answer": 2,
+            "explanation": "PDCAAS is truncated at 1.0, meaning no food can score above 100% protein quality relative to the reference pattern — even if digestibility × score >1."
+        },
+        {
+            "id": "h8",
+            "question": "In gluconeogenesis, oxaloacetate is first converted to phosphoenolpyruvate by which enzyme?",
+            "options": [
+                "Pyruvate kinase",
+                "PEPCK (phosphoenolpyruvate carboxykinase)",
+                "Lactate dehydrogenase",
+                "Triose phosphate isomerase"
+            ],
+            "answer": 1,
+            "explanation": "PEPCK catalyses OAA → PEP + CO2, the critical committed step in gluconeogenesis in liver and kidney."
+        },
+        {
+            "id": "h9",
+            "question": "Epigenetic programming of metabolic disease via maternal nutrition (Barker Hypothesis / DOHaD) is primarily mediated by:",
+            "options": [
+                "Point mutations in fetal DNA",
+                "DNA methylation and histone modification changes",
+                "Mitochondrial genome deletions",
+                "Telomere shortening"
+            ],
+            "answer": 1,
+            "explanation": "Maternal under/over-nutrition alters DNA methylation and histone acetylation patterns in the fetus, programming lifelong metabolic risk."
+        },
+        {
+            "id": "h10",
+            "question": "Steatohepatitis in non-alcoholic fatty liver disease (NAFLD) is predominantly driven by:",
+            "options": [
+                "Excess glycogen deposition",
+                "Lipotoxicity from diacylglycerols and ceramides",
+                "Hyperproteinaemia",
+                "Iron overload"
+            ],
+            "answer": 1,
+            "explanation": "DAGs and ceramides derived from excess lipid flux activate inflammatory pathways (JNK, NF-κB), driving hepatocyte injury in NAFLD/NASH."
+        },
+        {
+            "id": "h11",
+            "question": "The leucine trigger hypothesis states that leucine activates protein synthesis through which kinase?",
+            "options": [
+                "AMPK",
+                "mTORC1",
+                "Akt/PKB",
+                "ERK1/2"
+            ],
+            "answer": 1,
+            "explanation": "Leucine activates mTORC1 (mechanistic target of rapamycin complex 1) via Rag GTPases, stimulating ribosomal S6K1 and 4E-BP1 for protein synthesis."
+        },
+        {
+            "id": "h12",
+            "question": "In metabolomics analysis of dietary patterns, which metabolite is a reliable biomarker of whole-grain intake?",
+            "options": [
+                "Trimethylamine N-oxide (TMAO)",
+                "Alkylresorcinols",
+                "Indole-3-propionic acid",
+                "Hippuric acid"
+            ],
+            "answer": 1,
+            "explanation": "Alkylresorcinols, phenolic lipids found exclusively in the bran of wheat and rye, serve as objective biomarkers of whole-grain cereal intake."
+        },
+        {
+            "id": "h13",
+            "question": "In a clinical nutrition trial using 24-hour urinary urea nitrogen (UUN), daily protein catabolism is estimated by:",
+            "options": [
+                "UUN (g) × 5.25",
+                "UUN (g) + 4 × 6.25",
+                "UUN (g) × 6.25",
+                "UUN (g/24h) + total N losses × 6.25"
+            ],
+            "answer": 3,
+            "explanation": "Total nitrogen loss = UUN + insensible losses (~2–4g). Protein catabolism (g) = total N loss × 6.25."
+        },
+        {
+            "id": "h14",
+            "question": "The FTO gene variant rs9939609 is the most replicated GWAS locus associated with:",
+            "options": [
+                "Type 1 diabetes risk",
+                "Obesity and BMI predisposition",
+                "Coeliac disease susceptibility",
+                "Lactase persistence"
+            ],
+            "answer": 1,
+            "explanation": "The FTO (fat mass and obesity associated) rs9939609 A-allele is the most replicated genetic variant linked to increased BMI and obesity risk."
+        },
+        {
+            "id": "h15",
+            "question": "During prolonged fasting (>72h), the brain preferentially shifts its fuel source to:",
+            "options": [
+                "Lactate from muscle",
+                "Ketone bodies (β-hydroxybutyrate)",
+                "Glycerol from fat",
+                "Albumin-bound free fatty acids"
+            ],
+            "answer": 1,
+            "explanation": "After glycogen depletion and rising ketogenesis, β-hydroxybutyrate can supply up to 60–70% of the brain's energy needs in prolonged fasting."
+        },
+        {
+            "id": "h16",
+            "question": "Polyphenols' health effects are largely dependent on their conversion by the gut microbiome into:",
+            "options": [
+                "Short-chain fatty acids",
+                "Bioavailable urolithins and equol metabolites",
+                "B vitamins",
+                "Essential amino acids"
+            ],
+            "answer": 1,
+            "explanation": "Gut bacteria transform polyphenols (e.g., ellagitannins → urolithins; isoflavones → equol), producing bioactive metabolites with anti-inflammatory effects."
+        },
+        {
+            "id": "h17",
+            "question": "In critically ill patients on parenteral nutrition, refeeding syndrome risk arises primarily from shifts in which electrolyte?",
+            "options": [
+                "Sodium",
+                "Calcium",
+                "Phosphate",
+                "Chloride"
+            ],
+            "answer": 2,
+            "explanation": "Refeeding triggers insulin-mediated cellular uptake of phosphate, causing severe hypophosphataemia — disrupting ATP synthesis and causing cardiac/respiratory failure."
+        },
+        {
+            "id": "h18",
+            "question": "The double burden of malnutrition refers to the coexistence of:",
+            "options": [
+                "Undernutrition and infectious disease",
+                "Overnutrition and chronic disease",
+                "Undernutrition and overnutrition within the same population or individual",
+                "Micronutrient deficiency and food insecurity"
+            ],
+            "answer": 2,
+            "explanation": "The double burden describes simultaneous presence of undernutrition (stunting, wasting) and overnutrition (obesity, diet-related NCDs) in the same population or household."
+        },
+        {
+            "id": "h19",
+            "question": "Intermittent fasting's metabolic benefits in humans are primarily attributed to modulation of which signalling cascade?",
+            "options": [
+                "Insulin/IGF-1 and mTOR pathway suppression with AMPK activation",
+                "Elevated cortisol and increased basal metabolic rate",
+                "Suppressed ghrelin and elevated leptin",
+                "Activated HIF-1α pathways"
+            ],
+            "answer": 0,
+            "explanation": "IF reduces insulin/IGF-1/mTOR signalling and activates AMPK/SIRT1, promoting autophagy, metabolic flexibility, and cellular stress resistance."
+        },
+        {
+            "id": "h20",
+            "question": "According to the GRADE framework used in systematic reviews of nutritional evidence, 'moderate quality' means:",
+            "options": [
+                "Further research is unlikely to change confidence in effect estimate",
+                "Further research may change confidence in effect estimate",
+                "Further research is very likely to change the estimate",
+                "No evidence exists"
+            ],
+            "answer": 1,
+            "explanation": "GRADE moderate quality (⊕⊕⊕⊝) means we are moderately confident in the effect estimate, but further research may change it."
+        },
+        {
+            "id": "h21",
+            "question": "Which type of study design provides the strongest epidemiological evidence for diet-disease causality?",
+            "options": [
+                "Cross-sectional study",
+                "Case-control study",
+                "Prospective cohort study",
+                "Randomized controlled trial"
+            ],
+            "answer": 3,
+            "explanation": "RCTs provide the strongest evidence by randomly allocating participants, minimizing confounding, and establishing temporality and causality."
+        },
+        {
+            "id": "h22",
+            "question": "The 'protein leverage hypothesis' (Simpson & Raubenheimer) proposes that obesity arises because animals:",
+            "options": [
+                "Overconsume protein to meet energy needs",
+                "Overconsume energy to meet protein targets when protein diluted in diet",
+                "Underconsume fat to meet protein needs",
+                "Compensate protein intake by reducing carbohydrates"
+            ],
+            "answer": 1,
+            "explanation": "Protein leverage: when protein % in diet is low, organisms overeat total energy (carbs + fat) to achieve protein targets, potentially driving obesity."
+        },
+        {
+            "id": "h23",
+            "question": "In mitochondrial bioenergetics, P/O ratio refers to:",
+            "options": [
+                "Protein to oxygen consumed ratio",
+                "ATP produced per oxygen atom consumed",
+                "Phospholipid to organelle ratio",
+                "Proton pumping to oxygen ratio"
+            ],
+            "answer": 1,
+            "explanation": "The P/O ratio (ATP/O) indicates how much ATP is synthesized per oxygen atom reduced — a measure of oxidative phosphorylation efficiency."
+        },
+        {
+            "id": "h24",
+            "question": "Ultra-processed food (UPF) consumption is quantified using which classification system?",
+            "options": [
+                "ANDI score",
+                "NOVA classification",
+                "Nutrient Profiling Score",
+                "Glycaemic Load score"
+            ],
+            "answer": 1,
+            "explanation": "The NOVA food classification (Monteiro et al.) categorizes foods into 4 groups, with Group 4 being ultra-processed foods made of industrial substances."
+        },
+        {
+            "id": "h25",
+            "question": "Zinc finger proteins require zinc as a structural cofactor for which cellular function?",
+            "options": [
+                "Collagen synthesis",
+                "DNA binding and transcriptional regulation",
+                "Haemoglobin formation",
+                "Insulin secretion only"
+            ],
+            "answer": 1,
+            "explanation": "Zinc finger motifs are structural domains in transcription factors that enable sequence-specific DNA binding, regulating gene expression."
+        },
+        {
+            "id": "h26",
+            "question": "The AGVHD (alpha-glucosidase inhibitor therapy) nutritional consideration in patients is managing spikes in:",
+            "options": [
+                "Serum potassium",
+                "Postprandial blood glucose",
+                "Serum calcium",
+                "Fasting triglycerides"
+            ],
+            "answer": 1,
+            "explanation": "Alpha-glucosidase inhibitors (e.g., acarbose) slow carbohydrate absorption, blunting postprandial glucose spikes — requiring timed carbohydrate distribution in diet planning."
+        },
+        {
+            "id": "h27",
+            "question": "Crohn's disease-related malnutrition is most commonly addressed acutely with which nutrition therapy?",
+            "options": [
+                "Parenteral nutrition exclusively",
+                "Exclusive Enteral Nutrition (EEN)",
+                "High-fat ketogenic diet",
+                "Elemental diet orally only"
+            ],
+            "answer": 1,
+            "explanation": "EEN (sole source of nutrition via liquid formula) induces remission in paediatric Crohn's and provides nutritional rehabilitation without surgical risk."
+        },
+        {
+            "id": "h28",
+            "question": "In the context of precision nutrition, nutrigenomics investigates how:",
+            "options": [
+                "Gut bacteria metabolize nutrients",
+                "Individual genetic variants influence nutrient metabolism and dietary response",
+                "Nutrients alter the gut microbiome composition",
+                "Nutritional supplements regulate epigenetics"
+            ],
+            "answer": 1,
+            "explanation": "Nutrigenomics studies gene-diet interactions: how SNPs and genetic variants alter how individuals absorb, metabolize, and respond to specific dietary components."
+        },
+        {
+            "id": "h29",
+            "question": "Observational nutrition studies are often confounded by 'healthy user bias'. This means:",
+            "options": [
+                "Healthy foods taste better",
+                "People who eat healthy also practice other healthy behaviours, inflating diet effects",
+                "Subjects over-report healthy food intake",
+                "Unhealthy eaters have higher disease awareness"
+            ],
+            "answer": 1,
+            "explanation": "Healthy user bias occurs when health-conscious individuals adopt both the dietary intervention AND other healthy lifestyle habits, confounding diet-specific effects."
+        },
+        {
+            "id": "h30",
+            "question": "The Adequate Intake (AI) is used instead of RDA when:",
+            "options": [
+                "Data are sufficient to define EAR",
+                "Insufficient evidence exists to calculate EAR",
+                "Population requirements are too variable",
+                "The nutrient has high toxicity"
+            ],
+            "answer": 1,
+            "explanation": "AI is established when insufficient scientific data exist to determine the EAR and RDA — it's based on observed intake in apparently healthy populations."
+        }
+    ]
+}
