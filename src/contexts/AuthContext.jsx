@@ -73,18 +73,18 @@ export function AuthProvider({ children }) {
     }, [])
 
     // ── Sign Up ──────────────────────────────────────────────────────────────
-    const signUp = async (username, email, password) => {
+    const signUp = async (username, email, password, group = 'volunteer') => {
         try {
             const { data, error } = await supabase.auth.signUp({
                 email, password,
-                options: { data: { username } },
+                options: { data: { username, group } },
             })
             if (error) throw error
 
             const uid = data.user?.id
             if (uid) {
-                // Insert profile row (non-blocking)
-                supabase.from('profiles').insert({ id: uid, username, email }).catch(e =>
+                // Insert profile row with group (non-blocking)
+                supabase.from('profiles').insert({ id: uid, username, email, group }).catch(e =>
                     console.warn('[Auth] profile insert:', e.message)
                 )
                 // Init game state
