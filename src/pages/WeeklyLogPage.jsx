@@ -302,21 +302,25 @@ export default function WeeklyLogPage() {
         const weekStart = monday.toISOString().split('T')[0]
         localStorage.setItem(`nutrilearn_journal_done_${user.id}`, weekStart)
 
-        // Attempt Supabase in background (non-blocking)
-        submitWeeklyLog({
-            userId: user.id,
-            water: getVal(0),
-            fruits: getVal(1),
-            processed: getVal(2),
-            sleep: getVal(3),
-            activity: getVal(4),
-            eating_outside: getVal(5),
-        }).catch((err) => {
-            console.warn('[WeeklyLog] Supabase sync failed:', err?.message)
-            setSubmitError('⚠️ Saved locally — database sync failed. Your journal is recorded.')
-        })
+        // Await Supabase — block until we know if it succeeded or failed
+        try {
+            await submitWeeklyLog({
+                userId: user.id,
+                water: getVal(0),
+                fruits: getVal(1),
+                processed: getVal(2),
+                sleep: getVal(3),
+                activity: getVal(4),
+                eating_outside: getVal(5),
+            })
+        } catch (err) {
+            console.error('[WeeklyLog] Supabase sync FAILED:', err?.message, err)
+            setSubmitError(`⚠️ Could not save to database: ${err?.message || 'Unknown error'}. Please try again.`)
+            setSubmitting(false)
+            return  // Stop here — don't mark as submitted if DB write failed
+        }
 
-        // Show harvest report immediately
+        // Show harvest report only after successful save
         const answers = QUESTIONS.map((_, i) => ({
             ...QUESTIONS[i],
             positive: getPositive(i),

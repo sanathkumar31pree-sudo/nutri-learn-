@@ -47,8 +47,8 @@ export default function SignupPage() {
                     <p className="font-caveat italic text-xl text-white/60 mt-1">Begin your 90-day journey today</p>
                     {/* Group badge */}
                     <div className={`inline-flex items-center gap-1.5 mt-3 px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest font-semibold border ${isCompulsory
-                            ? 'bg-[#FF8C00]/20 border-[#FF8C00]/50 text-[#FF8C00]'
-                            : 'bg-green-500/20 border-green-400/50 text-green-300'
+                        ? 'bg-[#FF8C00]/20 border-[#FF8C00]/50 text-[#FF8C00]'
+                        : 'bg-green-500/20 border-green-400/50 text-green-300'
                         }`}>
                         {isCompulsory ? <Shield size={12} /> : <Star size={12} />}
                         {isCompulsory ? 'Compulsory Group' : 'Volunteer Group'}
@@ -72,9 +72,9 @@ export default function SignupPage() {
                         </div>
 
                         <div>
-                            <label className="block text-xs font-mono uppercase tracking-widest text-white/50 mb-1.5">Institutional Email</label>
+                            <label className="block text-xs font-mono uppercase tracking-widest text-white/50 mb-1.5">Email ID</label>
                             <input type="email" name="email" value={form.email} onChange={handleChange}
-                                placeholder="you@jssaher.edu.in"
+                                placeholder="you@example.com"
                                 className="glass-input" required />
                         </div>
 
