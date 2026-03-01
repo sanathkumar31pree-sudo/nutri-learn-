@@ -8,7 +8,6 @@ export default function SignupPage() {
     const navigate = useNavigate()
     const [searchParams] = useSearchParams()
     const group = searchParams.get('group') || 'volunteer' // default to volunteer if no param
-    const isCompulsory = group === 'compulsory'
     const [form, setForm] = useState({ username: '', email: '', password: '', confirm: '' })
     const [showPass, setShowPass] = useState(false)
     const [error, setError] = useState('')
@@ -20,7 +19,7 @@ export default function SignupPage() {
         e.preventDefault()
         setError('')
         if (!form.username.trim()) return setError('Username is required.')
-        if (!form.email.includes('@')) return setError('Enter a valid institutional email.')
+        if (!form.email.includes('@')) return setError('Enter a valid email address.')
         if (form.password.length < 6) return setError('Password must be at least 6 characters.')
         if (form.password !== form.confirm) return setError('Passwords do not match.')
         setLoading(true)
@@ -45,14 +44,6 @@ export default function SignupPage() {
                     </div>
                     <h1 className="font-caveat text-4xl font-bold text-white tracking-tight">Create your account</h1>
                     <p className="font-caveat italic text-xl text-white/60 mt-1">Begin your 90-day journey today</p>
-                    {/* Group badge */}
-                    <div className={`inline-flex items-center gap-1.5 mt-3 px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest font-semibold border ${isCompulsory
-                        ? 'bg-[#FF8C00]/20 border-[#FF8C00]/50 text-[#FF8C00]'
-                        : 'bg-green-500/20 border-green-400/50 text-green-300'
-                        }`}>
-                        {isCompulsory ? <Shield size={12} /> : <Star size={12} />}
-                        {isCompulsory ? 'Compulsory Group' : 'Volunteer Group'}
-                    </div>
                 </div>
 
                 {/* Card */}

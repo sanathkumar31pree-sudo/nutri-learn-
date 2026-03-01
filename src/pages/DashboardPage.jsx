@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { useGame } from '../contexts/GameContext'
-import { Zap, Flame, Calendar, PlayCircle, ShoppingBag, Bell, TrendingUp, Award } from 'lucide-react'
+import { Zap, Flame, Calendar, PlayCircle, ShoppingBag, Bell, TrendingUp, Award, LogOut } from 'lucide-react'
 
 // SVG circular progress ring
 function ProgressRing({ day, total = 90, size = 180, stroke = 10 }) {
@@ -57,9 +57,14 @@ function StatCard({ icon, label, value, sub, glowColor }) {
 }
 
 export default function DashboardPage() {
-    const { user } = useAuth()
+    const { user, signOut } = useAuth()
     const { gameState } = useGame()
     const navigate = useNavigate()
+
+    const handleSignOut = async () => {
+        await signOut()
+        navigate('/login')
+    }
 
     if (!gameState) return null
 
@@ -78,6 +83,13 @@ export default function DashboardPage() {
 
                 {/* Hero */}
                 <div className="glass-card rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center gap-8 md:gap-12 overflow-hidden relative">
+                    <button
+                        onClick={handleSignOut}
+                        className="absolute top-4 right-4 text-white/40 hover:text-white/80 transition-colors p-2 rounded-full hover:bg-white/10 z-10"
+                        title="Sign Out"
+                    >
+                        <LogOut size={20} />
+                    </button>
                     <div className="absolute -top-12 -right-12 w-56 h-56 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
                     <div className="flex-shrink-0">

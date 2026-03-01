@@ -8,10 +8,10 @@ async function buildUser(supabaseUser) {
     try {
         const { data } = await supabase
             .from('profiles')
-            .select('username, email, group_type')
+            .select('username, email, group')
             .eq('id', supabaseUser.id)
             .single()
-        if (data) return { id: supabaseUser.id, username: data.username, email: data.email || supabaseUser.email, group: data.group_type }
+        if (data) return { id: supabaseUser.id, username: data.username, email: data.email || supabaseUser.email, group: data.group }
     } catch (_) { /* offline */ }
     return {
         id: supabaseUser.id,
@@ -59,7 +59,7 @@ export function AuthProvider({ children }) {
             // Await the insert so we can surface errors properly
             const { error: profileError } = await supabase
                 .from('profiles')
-                .insert({ id: uid, username, email, group_type: group })
+                .insert({ id: uid, username, email, group: group })
             if (profileError) {
                 console.error('[Auth] profile insert FAILED:', profileError.message, profileError.details)
             }

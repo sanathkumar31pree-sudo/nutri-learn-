@@ -40,7 +40,22 @@ export function GameProvider({ children }) {
         if (!storageKey) { setGameState(null); return }
         const stored = localStorage.getItem(storageKey)
         if (stored) {
-            setGameState(JSON.parse(stored))
+            let state = JSON.parse(stored)
+            // Check if streak was broken before loading
+            if (state.lastCompletedDay && state.completedDays && state.completedDays[state.lastCompletedDay]) {
+                const lastDateStr = state.completedDays[state.lastCompletedDay].completedAt
+                if (lastDateStr) {
+                    const todayDate = new Date(new Date().toISOString().split('T')[0])
+                    const lastDate = new Date(lastDateStr)
+                    const diffTime = todayDate - lastDate
+                    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24))
+                    if (diffDays > 1 && state.streak > 0) {
+                        state.streak = 0
+                        localStorage.setItem(storageKey, JSON.stringify(state))
+                    }
+                }
+            }
+            setGameState(state)
         } else {
             // Initialize fresh game state
             const fresh = {
@@ -78,10 +93,29 @@ export function GameProvider({ children }) {
             // Streak logic
             let streak = prev.streak
             const lastDay = prev.lastCompletedDay
-            if (lastDay === null || dayNumber === lastDay + 1) {
-                streak += 1
-            } else if (dayNumber > lastDay + 1) {
-                streak = 1 // broken streak
+
+            if (lastDay === null) {
+                streak = 1
+            } else {
+                const lastDateStr = prev.completedDays[lastDay]?.completedAt
+                if (lastDateStr) {
+                    const todayDate = new Date(today)
+                    const lastDate = new Date(lastDateStr)
+                    const diffTime = todayDate - lastDate
+                    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24))
+
+                    if (diffDays === 1) {
+                        streak += 1
+                    } else if (diffDays === 0) {
+                        // already submitted today (shouldn't happen, but just in case keeping streak same)
+                    } else {
+                        streak = 1
+                    }
+                } else {
+                    // Fallback to old behavior if no completedAt
+                    if (dayNumber === lastDay + 1) streak += 1
+                    else streak = 1
+                }
             }
 
             const next = {
