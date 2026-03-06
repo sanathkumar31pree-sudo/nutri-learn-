@@ -135,17 +135,19 @@ export default function SprintPage() {
 
             // ── Check local stamp first (works offline) ──────────────────
             if (localStorage.getItem(localDoneKey) === today) {
+                setStudyDay(gameState?.currentDay ?? 1)
                 setAlreadyDone(true)
                 setInitialLoading(false)
                 return
             }
 
             try {
-                const [day, todayResponse] = await Promise.all([
+                const [serverDay, todayResponse] = await Promise.all([
                     getStudyDay(user.id),
                     getTodayResponse(user.id),
                 ])
 
+                const day = Math.max(serverDay, gameState?.currentDay ?? 1)
                 setStudyDay(day)
 
                 // If it's a weekly day (7, 14, 21...) redirect to Growth Journal
@@ -180,7 +182,7 @@ export default function SprintPage() {
         }
 
         checkDailyStatus()
-    }, [user?.id])
+    }, [user?.id, gameState?.currentDay])
 
     // ── GSAP: Animate question card when phase/index changes ─────────────────
     useEffect(() => {

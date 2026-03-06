@@ -23,19 +23,22 @@ export async function getTodayResponse(userId) {
 
 /**
  * Get the current study day for this user.
- * = count of distinct days they have submitted responses + 1
+ * = max day_number they have submitted + 1
  */
 export async function getStudyDay(userId) {
-    const { count, error } = await supabase
+    const { data, error } = await supabase
         .from('quiz_responses')
-        .select('id', { count: 'exact', head: true })
+        .select('day_number')
         .eq('user_id', userId)
+        .order('day_number', { ascending: false })
+        .limit(1)
+        .maybeSingle()
 
     if (error) {
         console.error('[quizService] getStudyDay error:', error.message)
         return 1 // fallback to day 1
     }
-    return Math.min((count ?? 0) + 1, 90) // cap at day 90
+    return Math.min((data?.day_number ?? 0) + 1, 90) // cap at day 90
 }
 
 /**
