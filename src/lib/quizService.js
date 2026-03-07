@@ -42,7 +42,7 @@ export async function fetchQuestionsForDay(day) {
         .from('quizzes')
         .select('*')
         .eq('difficulty', tier)
-        .order('id', { ascending: true })
+        .order('question', { ascending: true })
 
     if (res1.error) {
         console.warn('[quizService] exact difficulty match error:', res1.error.message)
@@ -57,7 +57,7 @@ export async function fetchQuestionsForDay(day) {
             .from('quizzes')
             .select('*')
             .ilike('difficulty', tier)
-            .order('id', { ascending: true })
+            .order('question', { ascending: true })
 
         if (!res2.error && res2.data && res2.data.length > 0) {
             allTierQuestions = res2.data
@@ -71,7 +71,7 @@ export async function fetchQuestionsForDay(day) {
         const res3 = await supabase
             .from('quizzes')
             .select('*')
-            .order('id', { ascending: true })
+            .order('question', { ascending: true })
 
         if (res3.error) {
             console.error('[quizService] fetchQuestionsForDay error:', res3.error.message)
@@ -108,7 +108,7 @@ export async function fetchQuestionsForDay(day) {
         else if (correctAns === (qRow.option_d || '').trim().toLowerCase()) answerIndex = 3
 
         questions.push({
-            id: qRow.id,
+            id: `q_${start + i}`,
             question: qRow.question,
             options: [qRow.option_a, qRow.option_b, qRow.option_c, qRow.option_d],
             answer: answerIndex,
