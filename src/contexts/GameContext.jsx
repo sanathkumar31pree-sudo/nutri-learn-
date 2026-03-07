@@ -2,6 +2,8 @@ import { createContext, useContext, useState, useEffect, useCallback } from 'rea
 import { useAuth } from './AuthContext'
 import { fetchQuestionsForDay } from '../lib/quizService'
 
+const GameContext = createContext(null)
+
 const TIER_MAP = {
     easy: { min: 1, max: 30 },
     medium: { min: 31, max: 60 },
