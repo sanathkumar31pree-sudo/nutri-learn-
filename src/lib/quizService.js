@@ -42,6 +42,7 @@ export async function fetchQuestionsForDay(day) {
         .from('quizzes')
         .select('*')
         .eq('difficulty', tier)
+        .order('week', { ascending: true })
         .order('question', { ascending: true })
 
     if (res1.error) {
@@ -57,6 +58,7 @@ export async function fetchQuestionsForDay(day) {
             .from('quizzes')
             .select('*')
             .ilike('difficulty', tier)
+            .order('week', { ascending: true })
             .order('question', { ascending: true })
 
         if (!res2.error && res2.data && res2.data.length > 0) {
@@ -71,6 +73,7 @@ export async function fetchQuestionsForDay(day) {
         const res3 = await supabase
             .from('quizzes')
             .select('*')
+            .order('week', { ascending: true })
             .order('question', { ascending: true })
 
         if (res3.error) {
