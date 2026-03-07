@@ -103,19 +103,27 @@ export async function fetchQuestionsForDay(day) {
     for (let i = 0; i < 5; i++) {
         const qRow = allTierQuestions[(start + i) % allTierQuestions.length]
 
-        // Determine which option matches the correct answer
-        let answerIndex = 0
-        const correctAns = (qRow.correct_answer || '').trim().toLowerCase()
-        if (correctAns === (qRow.option_b || '').trim().toLowerCase()) answerIndex = 1
-        else if (correctAns === (qRow.option_c || '').trim().toLowerCase()) answerIndex = 2
-        else if (correctAns === (qRow.option_d || '').trim().toLowerCase()) answerIndex = 3
+        // Map the correct_answer key (e.g. "option_a", "option_b") to an index 0-3
+        const correctKey = (qRow.correct_answer || '').trim().toLowerCase()
+        const answerKeyMap = { option_a: 0, option_b: 1, option_c: 2, option_d: 3 }
+        let answerIndex = answerKeyMap[correctKey]
+
+        // Fallback: if correct_answer stores actual text instead of a key name,
+        // try matching it against the option text values
+        if (answerIndex === undefined) {
+            answerIndex = 0
+            const correctText = correctKey
+            if (correctText === (qRow.option_b || '').trim().toLowerCase()) answerIndex = 1
+            else if (correctText === (qRow.option_c || '').trim().toLowerCase()) answerIndex = 2
+            else if (correctText === (qRow.option_d || '').trim().toLowerCase()) answerIndex = 3
+        }
 
         questions.push({
             id: `q_${start + i}`,
             question: qRow.question,
             options: [qRow.option_a, qRow.option_b, qRow.option_c, qRow.option_d],
             answer: answerIndex,
-            explanation: qRow.explanation || `Correct answer: ${qRow.correct_answer}.`
+            explanation: qRow.explanation || `The correct answer is: ${qRow[qRow.correct_answer] || qRow.correct_answer}.`
         })
     }
 
