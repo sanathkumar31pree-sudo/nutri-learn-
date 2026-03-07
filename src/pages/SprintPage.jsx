@@ -161,7 +161,7 @@ export default function SprintPage() {
                 }
 
                 // Load correct question set for this study day
-                const { questions: qs, tier: t } = getQuestionsForDay(day)
+                const { questions: qs, tier: t } = await getQuestionsForDay(day)
                 setQuestions(qs)
                 setTier(t)
 
@@ -173,9 +173,13 @@ export default function SprintPage() {
                 // Fallback to GameContext day if Supabase is unreachable
                 const fallbackDay = gameState?.currentDay ?? 1
                 setStudyDay(fallbackDay)
-                const { questions: qs, tier: t } = getQuestionsForDay(fallbackDay)
-                setQuestions(qs)
-                setTier(t)
+                try {
+                    const { questions: qs, tier: t } = await getQuestionsForDay(fallbackDay)
+                    setQuestions(qs)
+                    setTier(t)
+                } catch (e) {
+                    console.error('Even fallback failed', e)
+                }
             } finally {
                 setInitialLoading(false)
             }

@@ -1,8 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import { useAuth } from './AuthContext'
-import questionsData from '../data/questions.json'
-
-const GameContext = createContext(null)
+import { fetchQuestionsForDay } from '../lib/quizService'
 
 const TIER_MAP = {
     easy: { min: 1, max: 30 },
@@ -10,24 +8,9 @@ const TIER_MAP = {
     hard: { min: 61, max: 90 },
 }
 
-export function getQuestionsForDay(day) {
-    let tier = 'easy'
-    if (day >= 31 && day <= 60) tier = 'medium'
-    else if (day >= 61 && day <= 90) tier = 'hard'
-
-    const pool = questionsData[tier]
-    // Day within the tier (1-indexed within each tier)
-    const tierDay = tier === 'easy' ? day - 1
-        : tier === 'medium' ? day - 31
-            : day - 61
-
-    // Use deterministic slice of 5 questions per day (cycling within 30 questions)
-    const start = (tierDay * 5) % pool.length
-    const questions = []
-    for (let i = 0; i < 5; i++) {
-        questions.push(pool[(start + i) % pool.length])
-    }
-    return { questions, tier }
+// Ensure the signature stays the same for dependent components
+export async function getQuestionsForDay(day) {
+    return await fetchQuestionsForDay(day);
 }
 
 export function GameProvider({ children }) {
