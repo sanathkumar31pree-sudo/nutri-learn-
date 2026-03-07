@@ -106,6 +106,7 @@ export default function SprintPage() {
     const [initialLoading, setInitialLoading] = useState(true)  // DB check in progress
     const [submitLoading, setSubmitLoading] = useState(false)    // Awaiting DB write
     const [submitError, setSubmitError] = useState(null)
+    const [loadError, setLoadError] = useState(null)           // Question loading error
 
     const [studyDay, setStudyDay] = useState(1)           // DB-derived current study day
     const [alreadyDone, setAlreadyDone] = useState(false) // Has user submitted today?
@@ -124,6 +125,18 @@ export default function SprintPage() {
     const cardRef = useRef(null)
     const optionsRef = useRef(null)
     const timerRef = useRef(null)
+
+    // ── Load questions helper ────────────────────────────────────────────────
+    const loadQuestions = async (day) => {
+        const { questions: qs, tier: t } = await getQuestionsForDay(day)
+        if (!qs || qs.length === 0) {
+            throw new Error('No questions available for today. Please check your database.')
+        }
+        setQuestions(qs)
+        setTier(t)
+        setLoadError(null)
+        return { questions: qs, tier: t }
+    }
 
     // ── On Mount: Check daily limit + derive study day ───────────────────────
     useEffect(() => {
@@ -161,9 +174,12 @@ export default function SprintPage() {
                 }
 
                 // Load correct question set for this study day
-                const { questions: qs, tier: t } = await getQuestionsForDay(day)
-                setQuestions(qs)
-                setTier(t)
+                try {
+                    await loadQuestions(day)
+                } catch (qErr) {
+                    console.error('[SprintPage] Question load error:', qErr)
+                    setLoadError(qErr.message || 'Failed to load questions')
+                }
 
                 if (todayResponse) {
                     setAlreadyDone(true)
@@ -174,11 +190,10 @@ export default function SprintPage() {
                 const fallbackDay = gameState?.currentDay ?? 1
                 setStudyDay(fallbackDay)
                 try {
-                    const { questions: qs, tier: t } = await getQuestionsForDay(fallbackDay)
-                    setQuestions(qs)
-                    setTier(t)
+                    await loadQuestions(fallbackDay)
                 } catch (e) {
                     console.error('Even fallback failed', e)
+                    setLoadError(e.message || 'Failed to load questions')
                 }
             } finally {
                 setInitialLoading(false)
@@ -282,6 +297,45 @@ export default function SprintPage() {
                 <div className="glass-card rounded-2xl px-8 py-6 flex items-center gap-3">
                     <Loader2 size={20} className="text-white/60 animate-spin" />
                     <p className="font-outfit text-sm text-white/60">Loading your sprint…</p>
+                </div>
+            </div>
+        )
+    }
+
+    // ── Error loading questions ──────────────────────────────────────────────
+    if (loadError || (questions.length === 0 && !alreadyDone && phase !== 'results')) {
+        const handleRetry = async () => {
+            setLoadError(null)
+            setInitialLoading(true)
+            try {
+                await loadQuestions(studyDay)
+            } catch (e) {
+                console.error('[SprintPage] Retry failed:', e)
+                setLoadError(e.message || 'Failed to load questions')
+            } finally {
+                setInitialLoading(false)
+            }
+        }
+
+        return (
+            <div className="min-h-screen flex items-center justify-center px-4 pt-20">
+                <div className="glass-card rounded-3xl p-8 sm:p-10 max-w-sm w-full text-center">
+                    <XCircle size={48} className="mx-auto mb-4 text-[#FF8C00]" />
+                    <h2 className="font-caveat text-3xl font-bold text-white mb-2">
+                        Couldn&apos;t Load Questions
+                    </h2>
+                    <p className="font-outfit text-sm text-white/50 mb-6">
+                        {loadError || 'No questions were found for today. This could be a temporary issue.'}
+                    </p>
+                    <button onClick={handleRetry}
+                        className="w-full flex items-center justify-center gap-2 text-white rounded-full px-6 py-3 font-outfit font-semibold btn-magnetic border border-white/20 text-sm mb-3"
+                        style={{ background: 'linear-gradient(135deg, #FF8C00, #FFB347)', boxShadow: '0 0 24px rgba(255,140,0,0.4)' }}>
+                        🔄 Retry Loading
+                    </button>
+                    <button onClick={() => navigate('/dashboard')}
+                        className="w-full bg-white/20 border border-white/30 text-white rounded-full px-6 py-3 font-outfit font-semibold btn-magnetic hover:bg-white/30 text-sm">
+                        Back to Dashboard
+                    </button>
                 </div>
             </div>
         )

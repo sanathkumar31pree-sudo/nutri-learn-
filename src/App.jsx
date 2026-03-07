@@ -26,7 +26,12 @@ function Layout({ children }) {
 
 function AuthGuard({ children }) {
     const { user, loading } = useAuth()
-    if (loading) return null
+    if (loading) return (
+        <div className="min-h-[60vh] flex flex-col items-center justify-center">
+            <div className="w-10 h-10 border-4 border-white/20 border-t-[#FF8C00] rounded-full animate-spin mb-4"></div>
+            <p className="text-white/50 font-mono text-sm uppercase tracking-widest animate-pulse">Connecting securely...</p>
+        </div>
+    )
     return user ? <Navigate to="/dashboard" replace /> : children
 }
 

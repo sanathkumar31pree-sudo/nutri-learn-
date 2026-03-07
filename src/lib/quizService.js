@@ -31,27 +31,63 @@ export async function fetchQuestionsForDay(day) {
     if (day >= 31 && day <= 60) tier = 'medium'
     else if (day >= 61 && day <= 90) tier = 'hard'
 
-    // Calculate which "week" and day within the tier this is to get a deterministic slice
-    // Assuming 'quizzes' table has columns: question, option_a, option_b, option_c, option_d, correct_answer, difficulty
-    // We fetch all questions for the tier and slice, or we can order them and paginate.
-    // Let's fetch all for the tier, sort by id, and pick 5 to match the old logic.
-    const { data: allTierQuestions, error } = await supabase
+    console.log(`[quizService] Fetching questions for day ${day}, tier: ${tier}`)
+
+    // Try fetching with difficulty filter first (case-insensitive via ilike)
+    let allTierQuestions = null
+    let error = null
+
+    // Try exact match first
+    const res1 = await supabase
         .from('quizzes')
         .select('*')
         .eq('difficulty', tier)
-        .order('id', { ascending: true }) // ensure deterministic order
+        .order('id', { ascending: true })
 
-    if (error) {
-        console.error('[quizService] fetchQuestionsForDay error:', error.message)
-        throw error
+    if (res1.error) {
+        console.warn('[quizService] exact difficulty match error:', res1.error.message)
+    } else {
+        allTierQuestions = res1.data
+    }
+
+    // If exact match returned nothing, try case-insensitive match
+    if (!allTierQuestions || allTierQuestions.length === 0) {
+        console.log('[quizService] No results with exact match, trying case-insensitive...')
+        const res2 = await supabase
+            .from('quizzes')
+            .select('*')
+            .ilike('difficulty', tier)
+            .order('id', { ascending: true })
+
+        if (!res2.error && res2.data && res2.data.length > 0) {
+            allTierQuestions = res2.data
+            console.log(`[quizService] Found ${allTierQuestions.length} questions with ilike`)
+        }
+    }
+
+    // If still nothing, fetch ALL questions without difficulty filter
+    if (!allTierQuestions || allTierQuestions.length === 0) {
+        console.log('[quizService] No tier-filtered results, fetching ALL questions as fallback...')
+        const res3 = await supabase
+            .from('quizzes')
+            .select('*')
+            .order('id', { ascending: true })
+
+        if (res3.error) {
+            console.error('[quizService] fetchQuestionsForDay error:', res3.error.message)
+            throw res3.error
+        }
+
+        allTierQuestions = res3.data
+        console.log(`[quizService] Fetched ${allTierQuestions?.length ?? 0} total questions (no tier filter)`)
     }
 
     if (!allTierQuestions || allTierQuestions.length === 0) {
-        console.warn(`[quizService] No questions found for tier: ${tier}`)
+        console.warn(`[quizService] No questions found at all in the quizzes table`)
         return { questions: [], tier }
     }
 
-    // Day within the tier (1-indexed within each tier)
+    // Day within the tier (0-indexed within each tier)
     const tierDay = tier === 'easy' ? day - 1
         : tier === 'medium' ? day - 31
             : day - 61
@@ -64,20 +100,23 @@ export async function fetchQuestionsForDay(day) {
     for (let i = 0; i < 5; i++) {
         const qRow = allTierQuestions[(start + i) % allTierQuestions.length]
 
-        let answerIndex = 0;
-        if (qRow.correct_answer === qRow.option_b) answerIndex = 1;
-        if (qRow.correct_answer === qRow.option_c) answerIndex = 2;
-        if (qRow.correct_answer === qRow.option_d) answerIndex = 3;
+        // Determine which option matches the correct answer
+        let answerIndex = 0
+        const correctAns = (qRow.correct_answer || '').trim().toLowerCase()
+        if (correctAns === (qRow.option_b || '').trim().toLowerCase()) answerIndex = 1
+        else if (correctAns === (qRow.option_c || '').trim().toLowerCase()) answerIndex = 2
+        else if (correctAns === (qRow.option_d || '').trim().toLowerCase()) answerIndex = 3
 
         questions.push({
             id: qRow.id,
             question: qRow.question,
             options: [qRow.option_a, qRow.option_b, qRow.option_c, qRow.option_d],
             answer: answerIndex,
-            explanation: `Correct answer: ${qRow.correct_answer}.` // fallback explanation since db doesn't have it
+            explanation: qRow.explanation || `Correct answer: ${qRow.correct_answer}.`
         })
     }
 
+    console.log(`[quizService] Returning ${questions.length} questions for day ${day}`)
     return { questions, tier }
 }
 
