@@ -25,7 +25,28 @@ export function GameProvider({ children }) {
         if (!storageKey) { setGameState(null); return }
         const stored = localStorage.getItem(storageKey)
         if (stored) {
-            let state = JSON.parse(stored)
+            let state;
+            try {
+                state = JSON.parse(stored)
+                if (!state || typeof state !== 'object') throw new Error('Invalid state object')
+            } catch (err) {
+                console.error('[GameContext] Failed to parse stored state, resetting:', err)
+                localStorage.removeItem(storageKey)
+                const fresh = {
+                    userId: user.id,
+                    currentDay: 1,
+                    xp: 0,
+                    streak: 0,
+                    lastCompletedDay: null,
+                    completedDays: {},
+                    notificationTime: '08:00',
+                    notificationsEnabled: true,
+                }
+                localStorage.setItem(storageKey, JSON.stringify(fresh))
+                setGameState(fresh)
+                return
+            }
+            
             // Check if streak was broken before loading
             if (state.lastCompletedDay && state.completedDays && state.completedDays[state.lastCompletedDay]) {
                 const lastDateStr = state.completedDays[state.lastCompletedDay].completedAt

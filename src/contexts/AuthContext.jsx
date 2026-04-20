@@ -109,10 +109,15 @@ export function AuthProvider({ children }) {
     // ── Sign Out ─────────────────────────────────────────────────────────────
     const signOut = async () => {
         stopKeepAlive()
-        await supabase.auth.signOut()
-        setUser(null)
-        // Clear local session
-        localStorage.removeItem('supabase.auth.token')
+        try {
+            await supabase.auth.signOut()
+        } catch (err) {
+            console.warn('[Auth] signOut network request failed:', err)
+        } finally {
+            setUser(null)
+            // Clear local session
+            localStorage.removeItem('supabase.auth.token')
+        }
     }
 
     // ── Reset Password ───────────────────────────────────────────────────────
