@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { supabase } from '../lib/supabase'
+import { supabase, startKeepAlive, stopKeepAlive } from '../lib/supabase'
 
 const AuthContext = createContext(null)
 
@@ -26,18 +26,46 @@ export function AuthProvider({ children }) {
 
     useEffect(() => {
         supabase.auth.getSession()
-            .then(async ({ data: { session } }) => {
-                if (session?.user) {
-                    const profile = await buildUser(session.user)
-                    setUser(profile)
+            .then(async ({ data: { session }, error }) => {
+                if (error || !session) {
+                    // Session is invalid / expired / signed with old key
+                    // Force a clean slate so the user isn't stuck loading
+                    if (error) {
+                        console.warn('[Auth] stale session detected, clearing:', error.message)
+                        await supabase.auth.signOut().catch(() => {})
+                        localStorage.removeItem('supabase.auth.token')
+                    }
+                    setUser(null)
+                    setLoading(false)
+                    return
                 }
+                // Valid session — try to refresh it proactively
+                const { data: refreshed, error: refreshErr } =
+                    await supabase.auth.refreshSession()
+                if (refreshErr) {
+                    console.warn('[Auth] session refresh failed, signing out:', refreshErr.message)
+                    await supabase.auth.signOut().catch(() => {})
+                    localStorage.removeItem('supabase.auth.token')
+                    setUser(null)
+                    setLoading(false)
+                    return
+                }
+                const activeUser = refreshed?.session?.user ?? session.user
+                const profile = await buildUser(activeUser)
+                setUser(profile)
+                startKeepAlive()
                 setLoading(false)
             })
             .catch(() => {
+                setUser(null)
                 setLoading(false)
             })
 
         const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+            if (event === 'SIGNED_OUT' || event === 'TOKEN_REFRESHED' && !session) {
+                setUser(null)
+                return
+            }
             if (session?.user) {
                 const profile = await buildUser(session.user)
                 setUser(profile)
@@ -80,6 +108,7 @@ export function AuthProvider({ children }) {
 
     // ── Sign Out ─────────────────────────────────────────────────────────────
     const signOut = async () => {
+        stopKeepAlive()
         await supabase.auth.signOut()
         setUser(null)
         // Clear local session

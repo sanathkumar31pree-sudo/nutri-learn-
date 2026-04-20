@@ -16,4 +16,25 @@ export const supabase = createClient(supabaseUrl, supabaseKey, {
     },
 })
 
+// ── Keep-alive ping ────────────────────────────────────────────────────────
+// The free-tier GoTrue container idles after ~5 min of inactivity,
+// causing 1-2s cold-start delays on the next auth request.
+// This lightweight ping keeps it warm while the app is open.
+const KEEP_ALIVE_INTERVAL = 4 * 60 * 1000 // 4 minutes
+let keepAliveTimer = null
 
+export function startKeepAlive() {
+    if (keepAliveTimer) return
+    keepAliveTimer = setInterval(() => {
+        fetch(`${supabaseUrl}/auth/v1/health`, {
+            headers: { apikey: supabaseKey },
+        }).catch(() => {}) // swallow errors — this is best-effort
+    }, KEEP_ALIVE_INTERVAL)
+}
+
+export function stopKeepAlive() {
+    if (keepAliveTimer) {
+        clearInterval(keepAliveTimer)
+        keepAliveTimer = null
+    }
+}
