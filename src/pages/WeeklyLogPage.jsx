@@ -237,14 +237,17 @@ export default function WeeklyLogPage() {
             return
         }
 
-        // Also check Supabase (if online)
-        checkWeeklyLogSubmitted(user.id)
+        // Also check Supabase (if online) with a 5s timeout
+        Promise.race([
+            checkWeeklyLogSubmitted(user.id),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 5000))
+        ])
             .then(row => {
                 setAlreadySubmitted(!!row)
                 setLoading(false)
             })
             .catch(() => {
-                // Supabase offline — local stamp already checked above
+                // Supabase offline or timed out — local stamp already checked above
                 setLoading(false)
             })
     }, [user?.id])

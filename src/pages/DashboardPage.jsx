@@ -66,7 +66,13 @@ export default function DashboardPage() {
         navigate('/login')
     }
 
-    if (!gameState) return null
+    if (!gameState) {
+        return (
+            <div className="min-h-screen pt-24 pb-16 px-4 flex justify-center items-center">
+                <div className="w-10 h-10 rounded-full border-2 border-white/30 border-t-[#FF8C00] animate-spin" />
+            </div>
+        )
+    }
 
     const { currentDay, xp, streak, completedDays } = gameState
     const todayCompleted = !!completedDays[currentDay]

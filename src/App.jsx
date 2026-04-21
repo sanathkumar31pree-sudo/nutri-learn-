@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './contexts/AuthContext'
 import { GameProvider } from './contexts/GameContext'
@@ -26,10 +27,23 @@ function Layout({ children }) {
 
 function AuthGuard({ children }) {
     const { user, loading } = useAuth()
+    const [showEscape, setShowEscape] = useState(false)
+
+    useEffect(() => {
+        if (!loading) return
+        const t = setTimeout(() => setShowEscape(true), 10000)
+        return () => clearTimeout(t)
+    }, [loading])
+
     if (loading) return (
-        <div className="min-h-[60vh] flex flex-col items-center justify-center">
-            <div className="w-10 h-10 border-4 border-white/20 border-t-[#FF8C00] rounded-full animate-spin mb-4"></div>
+        <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4">
+            <div className="w-10 h-10 border-4 border-white/20 border-t-[#FF8C00] rounded-full animate-spin"></div>
             <p className="text-white/50 font-mono text-sm uppercase tracking-widest animate-pulse">Connecting securely...</p>
+            {showEscape && (
+                <a href="/login" className="mt-2 text-[#FF8C00] font-outfit text-sm underline underline-offset-4 hover:text-white transition-colors">
+                    Taking too long? Go to Login →
+                </a>
+            )}
         </div>
     )
     return user ? <Navigate to="/dashboard" replace /> : children
